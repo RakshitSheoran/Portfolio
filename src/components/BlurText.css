@@ -1,0 +1,73 @@
+.aboutText {
+  width: 60%;
+  font-weight: 700;
+}
+
+.aboutText .inline-block {
+  font-size: 5.2rem;
+  text-align: center;
+
+  /* Silver gradient on each word/letter */
+
+  background: linear-gradient(to bottom, #ffffff, #d4d4e8, #9898c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Preserve the blur animation */
+  display: inline-block;
+}
+
+.text-2xl {
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+
+.aboutText .last-words {
+  font-size: 6.5rem;
+  font-style: italic;
+  background: linear-gradient(
+    90deg,
+    #909090 0%,
+    #ffffff 25%,
+    #c8c8c8 50%,
+    #ffffff 75%,
+    #909090 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+@media (max-width: 1405px) {
+  .aboutText {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutText {
+    width: 90%;
+  }
+
+  .aboutText .inline-block {
+    font-size: clamp(3.5rem, 5vw, 5.5rem);
+  }
+  .aboutText .last-words {
+    font-size: clamp(3.5rem, 6.5vw, 6.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutText {
+    width: 95%;
+  }
+
+  .aboutText .inline-block {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+  .aboutText .last-words {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+}

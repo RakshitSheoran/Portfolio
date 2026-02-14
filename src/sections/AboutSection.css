@@ -1,0 +1,18 @@
+.card-text-container {
+  position: relative;
+  /* top: 50px; */
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+  padding-top: 5rem;
+}
+@media (max-width: 768px) {
+  .card-text-container {
+    padding-top: 3rem;
+  }
+}

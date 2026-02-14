@@ -1,0 +1,85 @@
+/* Liquid Background Container - stays fixed */
+.liquid-background-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Liquid Ether = background */
+.liquid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* Foreground Container - CHANGED to relative to allow scrolling */
+.foreground-container {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  min-height: 100vh;
+  pointer-events: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* All children should have pointer events */
+.foreground-container > * {
+  pointer-events: auto;
+}
+
+.header-section {
+  height: 100px;
+  width: 100vw;
+}
+/* Section styling for scrollable content */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 80px 20px; */
+  position: relative;
+}
+
+/* First section (hero) can be full height */
+.hero-section {
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Smooth scrollbar styling */
+.foreground-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.foreground-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.foreground-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.foreground-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+#skills {
+  background-color: yellow;
+  height: 100vh;
+  width: 100%;
+}
+#projects {
+  height: 100vh;
+  background-color: cadetblue;
+  width: 100%;
+}
