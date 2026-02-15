@@ -2,6 +2,7 @@ import LiquidEther from "./LiquidEther";
 import "./AppLayout.css";
 import Navbar from "./NavBar";
 import AboutSection from "../sections/AboutSection";
+import SkillsSections from "../sections/SkillsSection";
 
 export default function AppLayout() {
   return (
@@ -36,17 +37,11 @@ export default function AppLayout() {
         <section className="section hero-section">
           <AboutSection />
         </section>
-
-        {/* Additional Sections */}
-        <section className="section" id="projects">
-          <h2>Projects Section</h2>
-          {/* Your projects content */}
-        </section>
-
         <section className="section" id="skills">
-          <h2>Skills Section</h2>
-          {/* Your skills content */}
+          <SkillsSections></SkillsSections>
         </section>
+        {/* Additional Sections */}
+        <section className="section" id="projects"></section>
 
         <section className="section" id="contact">
           <h2>Contact Section</h2>

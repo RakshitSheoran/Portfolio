@@ -1,0 +1,252 @@
+.skills-section {
+  position: relative;
+  top: 10rem;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
+
+  /* Start content at the very top */
+  padding-top: 0; /* No top padding */
+  padding-bottom: clamp(80px, 10vh, 120px);
+  padding-left: clamp(20px, 5vw, 40px);
+  padding-right: clamp(20px, 5vw, 40px);
+
+  overflow: hidden;
+}
+
+/* 3D Background Element - adjust position */
+.skills-bg-element {
+  position: absolute;
+  top: -100px; /* Move it up so it doesn't create gap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header - no top margin or padding */
+.skills-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: clamp(30px, 6vh, 60px);
+  padding-top: 0; /* Remove top padding */
+}
+
+.skills-label {
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  padding-top: 0; /* Remove top padding */
+}
+
+.skills-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  font-family: "Inter", sans-serif;
+  padding-top: 0; /* Remove top padding */
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #8585a8 0%,
+    #ffffff 25%,
+    #b8b8d8 50%,
+    #ffffff 75%,
+    #9898c8 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Skills Container */
+.skills-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+  width: 100%;
+  margin-top: 0; /* Remove top margin */
+}
+
+/* Rest of the CSS remains the same... */
+
+.skills-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Skill Badge */
+.skill-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.skill-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50px;
+}
+
+.skill-badge:hover::before {
+  opacity: 1;
+}
+
+.skill-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.skill-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-icon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+}
+
+.skill-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Glow effect */
+.skill-glow {
+  position: absolute;
+  inset: -50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skill-badge:hover .skill-glow {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .skills-row {
+    gap: 12px;
+  }
+
+  .skill-badge {
+    padding: 12px 24px;
+  }
+
+  .skill-icon {
+    font-size: 18px;
+  }
+
+  .skill-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 20px;
+  }
+
+  .skills-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .skills-bg-element {
+    width: 400px;
+    height: 300px;
+  }
+
+  .skills-row {
+    gap: 10px;
+  }
+
+  .skill-badge {
+    padding: 10px 20px;
+  }
+
+  .skill-icon {
+    font-size: 16px;
+  }
+
+  .skill-name {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-container {
+    gap: 12px;
+  }
+
+  .skills-row {
+    gap: 8px;
+  }
+
+  .skill-badge {
+    padding: 8px 16px;
+  }
+
+  .skill-icon {
+    font-size: 14px;
+    min-width: 16px;
+  }
+
+  .skill-name {
+    font-size: 12px;
+  }
+
+  .skills-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
