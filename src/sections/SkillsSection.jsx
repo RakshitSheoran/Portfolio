@@ -6,38 +6,38 @@ const SkillsSection = () => {
     // Row 1
     [
       { name: "ReactJS", icon: "⚛️", color: "#61DAFB" },
-      { name: "NextJS", icon: "▲", color: "#000000" },
-      { name: "TypeScript", icon: "TS", color: "#3178C6" },
+      { name: "JavaScript", icon: "Js", color: "#ffd500" },
+      { name: "HTML5", icon: "🖼️", color: "#3178C6" },
+      { name: "CSS3", icon: "🖌️", color: "#F03E2F" },
       { name: "Tailwind CSS", icon: "🌊", color: "#06B6D4" },
-      { name: "Motion", icon: "M", color: "#FF0080" },
-      { name: "Sanity", icon: "S", color: "#F03E2F" },
+      // { name: "Motion", icon: "M", color: "#FF0080" },
     ],
     // Row 2
     [
-      { name: "Contentful", icon: "C", color: "#2478CC" },
-      { name: "NodeJS", icon: "⬢", color: "#339933" },
-      { name: "ExpressJS", icon: "EX", color: "#000000" },
-      { name: "PostgreSQL", icon: "🐘", color: "#4169E1" },
-      { name: "MongoDB", icon: "🍃", color: "#47A248" },
-      { name: "Prisma", icon: "▲", color: "#2D3748" },
+      // { name: "Contentful", icon: "C", color: "#2478CC" },
+      // { name: "NodeJS", icon: "⬢", color: "#339933" },
+      // { name: "ExpressJS", icon: "EX", color: "#000000" },
+      // { name: "PostgreSQL", icon: "🐘", color: "#4169E1" },
+      // { name: "MongoDB", icon: "🍃", color: "#47A248" },
+      // { name: "Prisma", icon: "▲", color: "#2D3748" },
     ],
     // Row 3
     [
-      { name: "Zustand", icon: "🐻", color: "#443E38" },
-      { name: "Zod", icon: "Z", color: "#3E67B1" },
-      { name: "pnpm", icon: "📦", color: "#F69220" },
-      { name: "Bun", icon: "🍞", color: "#FBF0DF" },
+      // { name: "Zustand", icon: "🐻", color: "#443E38" },
+      // { name: "Zod", icon: "Z", color: "#3E67B1" },
+      // { name: "pnpm", icon: "📦", color: "#F69220" },
+      // { name: "Bun", icon: "🍞", color: "#FBF0DF" },
       { name: "Git", icon: "◆", color: "#F05032" },
-      { name: "GitHub", icon: "", color: "#181717" },
+      { name: "GitHub", icon: "🟨", color: "#181717" },
       { name: "Vercel", icon: "▲", color: "#000000" },
     ],
     // Row 4
     [
-      { name: "AWS", icon: "☁️", color: "#FF9900" },
-      { name: "Docker", icon: "🐳", color: "#2496ED" },
-      { name: "Expo", icon: "△", color: "#000020" },
-      { name: "Clerk", icon: "C", color: "#6C47FF" },
-      { name: "Linux", icon: "🐧", color: "#FCC624" },
+      // { name: "AWS", icon: "☁️", color: "#FF9900" },
+      // { name: "Docker", icon: "🐳", color: "#2496ED" },
+      // { name: "Expo", icon: "△", color: "#000020" },
+      // { name: "Clerk", icon: "C", color: "#6C47FF" },
+      // { name: "Linux", icon: "🐧", color: "#FCC624" },
     ],
   ];
 
