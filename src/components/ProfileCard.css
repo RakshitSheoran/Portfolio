@@ -388,6 +388,7 @@
   top: 8em;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .pc-details h3 {
@@ -448,7 +449,6 @@
 }
 .pc-details .userName {
   font-size: 3.6rem;
-  margin-bottom: 2rem;
 }
 .pc-details .userTitle {
   font-size: 2rem;
@@ -460,7 +460,6 @@
   }
   .pc-details .userName {
     font-size: 3.2rem;
-    margin-bottom: 1.6rem;
   }
   .pc-details .userTitle {
     font-size: 1.6rem;
@@ -511,13 +510,15 @@
 }
 
 @media (max-width: 480px) {
+  .pc-details {
+    gap: 1.6rem;
+  }
   .userName,
   .userTitle {
     font-family: sans-serif;
   }
   .pc-details .userName {
     font-size: 2.6rem;
-    margin-bottom: 1rem;
   }
   .pc-details .userTitle {
     font-size: 1.3rem;
