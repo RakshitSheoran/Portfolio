@@ -16,12 +16,11 @@
   pointer-events: none;
 }
 
-/* Foreground Container - CHANGED to relative to allow scrolling */
+/* Foreground Container */
 .foreground-container {
   position: relative;
   z-index: 100;
   width: 100%;
-  min-height: 100vh;
   pointer-events: none;
   overflow-y: auto;
   overflow-x: hidden;
@@ -32,33 +31,61 @@
   pointer-events: auto;
 }
 
+/* Navbar */
 .header-section {
-  height: 100px;
   width: 100vw;
 }
-/* Section styling for scrollable content */
+
+/* Base section - purely content driven */
 .section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding: 80px 20px; */
+  padding: 5rem 1.25rem;
+  box-sizing: border-box;
   position: relative;
+  width: 100%;
 }
 
-/* First section (hero) can be full height */
+/* Hero - generous padding, soft floor for large screens */
 .hero-section {
-  min-height: 100vh;
-  padding: 0;
+  min-height: 600px;
+  padding: 14rem 1.25rem;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
+/* Skills and Projects - auto height, content driven */
+#skills {
+  height: auto;
+  padding: 5rem 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+}
+
+#projects {
+  height: auto;
+  padding: 5rem 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Contact */
+#contact {
+  padding: 5rem 1.25rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 /* Smooth scrollbar styling */
 .foreground-container::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem;
 }
 
 .foreground-container::-webkit-scrollbar-track {
@@ -67,19 +94,24 @@
 
 .foreground-container::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .foreground-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
-#skills {
-  background-color: yellow;
-  height: 100vh;
-  width: 100%;
+@media (max-width: 1200px) {
+  .hero-section {
+    padding: 14rem 1.25rem;
+  }
 }
-#projects {
-  height: 100vh;
-  background-color: cadetblue;
-  width: 100%;
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 12rem 1.25rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 8rem 1.25rem 2rem;
+  }
 }

@@ -446,24 +446,24 @@
 .userTitle {
   font-family: sans-serif;
 }
-.userName {
-  font-size: 3.8rem !important;
-  margin-bottom: 1.5rem !important;
+.pc-details .userName {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
 }
-.userTitle {
-  font-size: 1.8rem !important;
+.pc-details .userTitle {
+  font-size: 2rem;
 }
 @media (max-width: 768px) {
-  .userName,
+  .pc-details .userName,
   .userTitle {
     font-family: sans-serif;
   }
-  .userName {
-    font-size: 3.2rem !important;
-    margin-bottom: 1.5rem !important;
+  .pc-details .userName {
+    font-size: 3.2rem;
+    margin-bottom: 1.6rem;
   }
-  .userTitle {
-    font-size: 1.8rem !important;
+  .pc-details .userTitle {
+    font-size: 1.6rem;
   }
   .pc-card {
     height: 70svh;
@@ -515,12 +515,12 @@
   .userTitle {
     font-family: sans-serif;
   }
-  .userName {
-    font-size: 2.8rem !important;
-    margin-bottom: 1rem !important;
+  .pc-details .userName {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
   }
-  .userTitle {
-    font-size: 1.6rem !important;
+  .pc-details .userTitle {
+    font-size: 1.3rem;
   }
   .pc-card {
     height: 60svh;
