@@ -1,6 +1,6 @@
 .skills-section {
   position: relative;
-  top: 10rem;
+  /* top: 10rem; */
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -9,7 +9,7 @@
   justify-content: flex-start; /* Changed from center to flex-start */
 
   /* Start content at the very top */
-  padding-top: 0; /* No top padding */
+  padding-top: 0;
   padding-bottom: clamp(80px, 10vh, 120px);
   padding-left: clamp(20px, 5vw, 40px);
   padding-right: clamp(20px, 5vw, 40px);

@@ -37,8 +37,8 @@ export default function AppLayout() {
         <section className="section hero-section">
           <AboutSection />
         </section>
-        <section className="section" id="skills">
-          <SkillsSections></SkillsSections>
+        <section className="" id="">
+          <SkillsSections />
         </section>
         {/* Additional Sections */}
         <section className="section" id="projects"></section>
