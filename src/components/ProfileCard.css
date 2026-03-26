@@ -445,7 +445,7 @@
 }
 .userName,
 .userTitle {
-  font-family: sans-serif;
+  font-family: sans-serif; padding: 2px;
 }
 .pc-details .userName {
   font-size: 3.6rem;
