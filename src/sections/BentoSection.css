@@ -1,0 +1,1023 @@
+/* ══════════════════════════════════════════════════════
+   BENTO SECTION
+   ══════════════════════════════════════════════════════ */
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.bento-section {
+  width: 100%;
+  padding: clamp(40px, 8vh, 80px) clamp(16px, 4vw, 60px);
+  box-sizing: border-box;
+}
+
+/* ── Section Header ───────────────────────────────────── */
+.bento-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  max-width: 1200px;
+  margin: 0 auto clamp(32px, 5vh, 56px);
+}
+
+.bento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 100px;
+  border: 1px solid rgba(132, 0, 255, 0.35);
+  background: rgba(132, 0, 255, 0.08);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+}
+
+.bento-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(132, 0, 255, 1);
+  box-shadow: 0 0 8px rgba(132, 0, 255, 0.9);
+  flex-shrink: 0;
+}
+
+.bento-heading {
+  font-size: clamp(3.2rem, 6vw, 5.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  font-family: "Google Sans Flex", sans-serif;
+}
+
+.bento-heading em {
+  font-style: italic;
+  background: linear-gradient(
+    90deg,
+    #6d28d9 0%,
+    #a855f7 25%,
+    #7c3aed 50%,
+    #a855f7 75%,
+    #6d28d9 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  font-family: "Playfair Display", serif;
+}
+
+.bento-subtitle {
+  font-size: clamp(1.4rem, 1.5vw, 1.7rem);
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 500px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Grid ─────────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "hero    hero    resume  diff"
+    "quote   quote   edu     fun"
+    "projects projects social work";
+  gap: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Base Card (glass) ────────────────────────────────── */
+.bento-card {
+  --gx: 50%;
+  --gy: 50%;
+  --gi: 0;
+
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  padding: 22px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  border-color: rgba(132, 0, 255, 0.22);
+  box-shadow:
+    0 12px 44px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(132, 0, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Radial inner glow on cursor */
+.bento-card__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--gi);
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    220px circle at var(--gx) var(--gy),
+    rgba(132, 0, 255, 0.1),
+    transparent 70%
+  );
+}
+
+/* Border-only glow ring */
+.bento-card__border {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: calc(var(--gi) * 0.85);
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    200px circle at var(--gx) var(--gy),
+    rgba(132, 0, 255, 0.75),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+/* All direct children above glow layers */
+.bento-card > *:not(.bento-card__glow):not(.bento-card__border) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Grid area assignments ────────────────────────────── */
+.bento-hero {
+  grid-area: hero;
+}
+.bento-resume {
+  grid-area: resume;
+}
+.bento-diff {
+  grid-area: diff;
+}
+.bento-quote {
+  grid-area: quote;
+}
+.bento-edu {
+  grid-area: edu;
+}
+.bento-fun {
+  grid-area: fun;
+}
+.bento-projects {
+  grid-area: projects;
+}
+.bento-social {
+  grid-area: social;
+}
+.bento-work {
+  grid-area: work;
+}
+
+/* ══════════════════════════════════════════════════════
+   SHARED UTILITIES
+   ══════════════════════════════════════════════════════ */
+
+.bento-card__label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 14px;
+}
+
+/* ── Buttons — all matching NavBar CTA style ── */
+.bento-btn {
+  max-width: 15rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: "Google Sans Flex", "Inter", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary gradient — matches NavBar "Hire Me" exactly */
+.bento-btn--cta {
+  background: linear-gradient(135deg, #5227ff 0%, #7d33c6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow:
+    0 4px 15px rgba(82, 39, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bento-btn--cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.bento-btn--cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(82, 39, 255, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.bento-btn--cta:hover::before {
+  left: 100%;
+}
+
+.bento-btn--cta:active {
+  transform: translateY(0);
+}
+
+/* Outline / secondary — glass style */
+.bento-btn--outline {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.bento-btn--outline:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.phone-logo {
+  transform: rotate(90deg);
+}
+/* Call Me phone reveal */
+.bento-btn--phone {
+  /* font-size: clamp(10px, 2vw, 12px); */
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.75);
+  min-width: 0;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    min-width 0.4s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.bento-btn--phone.is-revealed {
+  background: rgba(82, 39, 255, 0.15);
+  border-color: rgba(82, 39, 255, 0.35);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.bento-btn--phone:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════════
+   CARD-SPECIFIC STYLES
+   ══════════════════════════════════════════════════════ */
+
+/* ── Hero Card (compact, 1 row) ───────────────────────── */
+.bento-hero__inner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+.bento-hero__photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.bento-hero__photo {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: block;
+}
+
+/* Glass pill status badge */
+.bento-hero__status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.bento-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+  flex-shrink: 0;
+  animation: bento-pulse 2.2s ease infinite;
+}
+
+@keyframes bento-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 11px rgba(34, 197, 94, 1);
+  }
+}
+
+.bento-hero__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bento-hero__handle {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.32);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0 0 3px;
+}
+
+.bento-hero__name {
+  font-size: 3rem;
+  /* font-size: clamp(16px, 2.5vw, 30px); */
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.bento-hero__role-line {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.bento-hero__role-prefix {
+  margin-right: 5px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.42);
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.bento-hero__role-wrap {
+  height: 22px;
+  overflow: hidden;
+}
+
+.bento-hero__role {
+  display: block;
+  font-size: clamp(15px, 3vw, 18px);
+  font-weight: 600;
+  background: linear-gradient(90deg, #a855f7 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* 2×2 facts grid */
+.bento-hero__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+
+.bento-fact {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.58);
+  white-space: nowrap;
+}
+
+.bento-fact__icon {
+  color: rgba(132, 0, 255, 0.75);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Resume Card ──────────────────────────────────────── */
+.bento-resume__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  gap: 10px;
+}
+
+.bento-resume__icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: rgba(82, 39, 255, 0.14);
+  border: 1px solid rgba(82, 39, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-resume__icon {
+  font-size: 21px;
+  color: rgba(125, 51, 198, 0.95);
+}
+
+.bento-resume__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bento-resume__updated {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.32);
+  margin: 0;
+}
+
+/* ── What Makes Me Different ──────────────────────────── */
+.bento-diff__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.bento-diff__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bento-diff__ico {
+  font-size: 15px;
+  color: rgba(132, 0, 255, 0.9);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bento-diff__ico--code {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+  color: rgba(132, 0, 255, 0.9);
+  line-height: 1.7;
+}
+
+.bento-diff__list li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.bento-diff__list li strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.bento-diff__list li span {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.4;
+}
+
+/* ── Quote Card ───────────────────────────────────────── */
+.bento-quote__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.bento-quote__mark {
+  font-size: 80px;
+  line-height: 1.75;
+  font-family: "Playfair Display", serif;
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+  user-select: none;
+  margin-top: 8px;
+}
+
+.bento-quote__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bento-quote__text {
+  font-size: clamp(14px, 3.4vw, 30px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.bento-quote__caption {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ── Education Card ───────────────────────────────────── */
+.bento-edu__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.bento-edu__badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  background: rgba(82, 39, 255, 0.14);
+  border: 1px solid rgba(82, 39, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(125, 51, 198, 0.95);
+  flex-shrink: 0;
+  letter-spacing: 0.4px;
+}
+
+.bento-edu__details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.bento-edu__degree {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.bento-edu__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bento-edu__years {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.bento-edu__cgpa {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(168, 85, 247, 0.85);
+  background: rgba(132, 0, 255, 0.12);
+  border: 1px solid rgba(132, 0, 255, 0.2);
+  padding: 1px 7px;
+  border-radius: 20px;
+}
+.location-container {
+  display: flex;
+  align-items: centre;
+  gap: 5px;
+}
+.bento-edu__uni {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.38);
+  margin: 2px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+.bento-edu__loc {
+  font-size: 10px;
+  color: rgba(132, 0, 255, 0.65);
+  flex-shrink: 0;
+}
+
+/* ── Fun Facts Card ───────────────────────────────────── */
+.bento-fun__items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bento-fun__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bento-fun__emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.bento-fun__item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.bento-fun__item strong {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bento-fun__item span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Projects Preview Card ────────────────────────────── */
+.bento-projects__inner {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  height: 100%;
+}
+
+.bento-projects__preview {
+  position: relative;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #18181b;
+  min-height: 148px;
+}
+
+.bento-projects__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bento-projects__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+.bento-projects__info {
+  flex-shrink: 0;
+  width: 148px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.bento-projects__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bento-projects__sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.36);
+  margin: 0 0 8px;
+}
+
+/* ── Social Links Card ────────────────────────────────── */
+.bento-social__links {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.bento-social__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bento-social__link svg {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.bento-social__link:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.bento-social__link--li svg {
+  color: #0a66c2;
+}
+.bento-social__link--li:hover {
+  border-color: rgba(10, 102, 194, 0.32);
+}
+
+.bento-social__link--gh svg {
+  color: #e8eaea;
+}
+.bento-social__link--gh:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.bento-social__link--ig svg {
+  color: #e1306c;
+}
+.bento-social__link--ig:hover {
+  border-color: rgba(225, 48, 108, 0.32);
+}
+
+/* ── Work Together Card ───────────────────────────────── */
+.bento-work__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-work__top {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.bento-work__star {
+  color: rgba(150, 0, 255, 0.9);
+  font-size: 20px;
+}
+
+.bento-work__heading {
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.bento-work__sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.bento-work__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════ */
+
+/* 3 columns — hero/quote wide, others adapt */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "hero    hero    resume"
+      "quote   quote   diff"
+      "edu     fun     social"
+      "projects projects work";
+    grid-template-rows: auto;
+  }
+
+  /* Work card: limited to 1 col so it doesn't over-stretch */
+  .bento-work {
+    align-self: stretch;
+  }
+  .bento-quote__text {
+    font-size: clamp(14px, 3.6vw, 30px);
+  }
+}
+
+/* 2 columns — content-heavy cards stay wide */
+@media (max-width: 768px) {
+  .bento-section {
+    padding: clamp(32px, 6vh, 60px) clamp(14px, 4vw, 28px);
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "hero     hero"
+      "quote    quote"
+      "resume   diff"
+      "projects projects"
+      "edu      edu"
+      "fun      social"
+      "work     work";
+    gap: 12px;
+  }
+
+  /* edu gets full width on tablet since it has more content */
+  .bento-edu {
+    grid-column: span 2;
+  }
+
+  /* work stays full width but with constrained inner layout */
+  .bento-work .bento-work__btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .bento-hero__photo {
+    width: 86px;
+    height: 108px;
+  }
+  .bento-hero__name {
+    font-size: 3rem;
+  }
+}
+
+/* 1 column — fully stacked */
+@media (max-width: 540px) {
+  .bento-section {
+    padding: clamp(24px, 5vh, 48px) 14px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "quote"
+      "resume"
+      "diff"
+      "edu"
+      "fun"
+      "projects"
+      "social"
+      "work";
+    gap: 11px;
+  }
+
+  /* edu back to auto (single col) */
+  .bento-edu {
+    grid-column: auto;
+  }
+
+  .bento-hero__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .bento-hero__facts {
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+  }
+
+  .bento-hero__role-line {
+    justify-content: center;
+  }
+
+  .bento-hero__photo {
+    width: 92px;
+    height: 116px;
+  }
+
+  .bento-quote__mark {
+    font-size: 60px;
+  }
+
+  .bento-quote__text {
+    font-size: 20px;
+  }
+
+  .bento-projects__inner {
+    flex-direction: column;
+  }
+
+  .bento-projects__preview {
+    min-height: 155px;
+    flex: none;
+  }
+
+  .bento-projects__info {
+    width: 100%;
+  }
+
+  .bento-work__btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .bento-hero__name {
+    font-size: 3rem;
+  }
+}

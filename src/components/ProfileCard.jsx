@@ -241,6 +241,7 @@ const ProfileCardComponent = ({
 
   useEffect(() => {
     if (!enableTilt || !tiltEngine) return;
+    if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
 
     const shell = shellRef.current;
     if (!shell) return;
@@ -335,7 +336,6 @@ const ProfileCardComponent = ({
                 className="avatar"
                 src={avatarUrl}
                 alt={`${name || "User"} avatar`}
-                loading="lazy"
                 onError={(e) => {
                   const t = e.target;
                   t.style.display = "none";
@@ -348,7 +348,6 @@ const ProfileCardComponent = ({
                       <img
                         src={miniAvatarUrl || avatarUrl}
                         alt={`${name || "User"} mini avatar`}
-                        loading="lazy"
                         onError={(e) => {
                           const t = e.target;
                           t.style.opacity = "0.5";

@@ -36,51 +36,25 @@
   width: 100vw;
 }
 
-/* Base section - purely content driven */
+/* Base section — single source of truth for spacing */
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5rem 1.25rem;
+  padding: 5rem 2rem;
   box-sizing: border-box;
   position: relative;
   width: 100%;
 }
 
-/* Hero - generous padding, soft floor for large screens */
+/* Hero — original padding preserved */
 .hero-section {
   min-height: 600px;
-  padding: 14rem 1.25rem;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* Skills and Projects - auto height, content driven */
-#skills {
-  height: auto;
-  padding: 5rem 1.25rem;
-  width: 100%;
-  box-sizing: border-box;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start; */
-}
-
-#projects {
-  height: auto;
-  padding: 5rem 1.25rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Contact */
-#contact {
-  padding: 5rem 1.25rem;
-  box-sizing: border-box;
-  width: 100%;
+  padding-top: 14rem;
+  padding-bottom: 10rem;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /* Smooth scrollbar styling */
@@ -100,18 +74,32 @@
 .foreground-container::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
+
 @media (max-width: 1200px) {
   .hero-section {
-    padding: 14rem 1.25rem;
+    padding-top: 14rem;
   }
 }
+
 @media (max-width: 1024px) {
   .hero-section {
-    padding: 12rem 1.25rem;
+    padding-top: 12rem;
   }
 }
+
 @media (max-width: 768px) {
   .hero-section {
-    padding: 8rem 1.25rem 2rem;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
   }
+}
+
+.animation-section {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+#projects {
+  padding-left: 0rem;
+  padding-right: 0rem;
 }

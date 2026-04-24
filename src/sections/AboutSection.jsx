@@ -17,7 +17,7 @@ export default function AboutSection() {
           showUserInfo
           enableTilt={true}
           enableMobileTilt={false}
-          onContactClick={() => console.log("Contact clicked")}
+          onContactClick={() => window.location.href = "tel:+918950114027"}
           showIcon
           showBehindGlow={false}
           behindGlowColor="hsla(236, 100%, 70%, 0.6)"
@@ -26,9 +26,9 @@ export default function AboutSection() {
 
         <BlurText
           text="I build fast, intelligent web products that deliver real impact."
-          lastWordsCount={2} // Style the last 2 words
-          lastWordsFont="'Times New Roman', serif" // Different font
-          lastWordsClass="last-words" // Optional: add custom class
+          lastWordsCount={2}
+          lastWordsFont="'PlayFair Display', serif"
+          lastWordsClass="last-words"
         />
       </div>
     </>

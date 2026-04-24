@@ -2,7 +2,12 @@ import LiquidEther from "./LiquidEther";
 import "./AppLayout.css";
 import Navbar from "./NavBar";
 import AboutSection from "../sections/AboutSection";
+import BentoSection from "../sections/BentoSection";
 import SkillsSections from "../sections/SkillsSection";
+import MultiSection from "../sections/MultiSection";
+import ExperienceSection from "../sections/ExperienceSection";
+import TestimonialsSection from "../sections/TestimonialsSection";
+import FooterSection from "../sections/FooterSection";
 
 export default function AppLayout() {
   return (
@@ -33,19 +38,33 @@ export default function AppLayout() {
         <div className="header-section">
           <Navbar />
         </div>
-        {/* Hero Section with AboutSection */}
-        <section className="section hero-section">
+
+        <section className="section hero-section" id="home">
           <AboutSection />
         </section>
-        <section className="" id="">
+
+        <section className="section" id="about">
+          <BentoSection />
+        </section>
+
+        <section className="section" id="projects">
+          <MultiSection />
+        </section>
+
+        <section className="section" id="skills">
           <SkillsSections />
         </section>
-        {/* Additional Sections */}
-        <section className="section" id="projects"></section>
+
+        <section className="section" id="experience">
+          <ExperienceSection />
+        </section>
+
+        <section className="section" id="testimonials">
+          <TestimonialsSection />
+        </section>
 
         <section className="section" id="contact">
-          <h2>Contact Section</h2>
-          {/* Your contact content */}
+          <FooterSection />
         </section>
       </div>
     </>

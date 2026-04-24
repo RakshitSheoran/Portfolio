@@ -19,26 +19,27 @@
 }
 
 .text-2xl {
-  font-family: "Inter", sans-serif;
+  font-family: "Google Sans Flex", "Inter", sans-serif;
   position: relative;
 }
 
 .aboutText .last-words {
-  font-size: 6.5rem;
+  font-size: 5.2rem;
   font-style: italic;
   background: linear-gradient(
     90deg,
-    #909090 0%,
-    #ffffff 25%,
-    #c8c8c8 50%,
-    #ffffff 75%,
-    #909090 100%
+    #6d28d9 0%,
+    #a855f7 25%,
+    #7c3aed 50%,
+    #a855f7 75%,
+    #6d28d9 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s linear infinite;
+  font-family: "Playfair Display", serif;
 }
 @media (max-width: 1405px) {
   .aboutText {
@@ -52,10 +53,10 @@
   }
 
   .aboutText .inline-block {
-    font-size: clamp(3.5rem, 5vw, 5.5rem);
+    font-size: clamp(3.5rem, 6.4vw, 5.5rem);
   }
   .aboutText .last-words {
-    font-size: clamp(3.5rem, 6.5vw, 6.2rem);
+    font-size: clamp(3.5rem, 6.4vw, 6.2rem);
   }
 }
 
@@ -65,9 +66,9 @@
   }
 
   .aboutText .inline-block {
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-size: clamp(2rem, 6.4vw, 3.5rem);
   }
   .aboutText .last-words {
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2rem, 6.4vw, 3.5rem);
   }
 }

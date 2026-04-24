@@ -1,14 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./NavBar.css";
+
+const NAV_ITEMS = [
+  { label: "Home",        id: "home" },
+  { label: "About",       id: "about" },
+  { label: "Projects",    id: "projects" },
+  { label: "Skills",      id: "skills" },
+  { label: "Contact",     id: "contact" },
+];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
 
-  const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    // For now, just console log. Later we'll add scroll functionality
-    console.log(`Navigating to ${sectionId}`);
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveSection(id);
   };
+
+  /* Highlight active section on scroll */
+  useEffect(() => {
+    const ids = NAV_ITEMS.map((n) => n.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav className="glass-navbar">
@@ -20,53 +46,27 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <ul className="navbar-menu">
-          <li>
-            <button
-              className={`nav-link ${activeSection === "home" ? "active" : ""}`}
-              onClick={() => scrollToSection("home")}
-            >
-              Home
-            </button>
-          </li>
-          <li>
-            <button
-              className={`nav-link ${activeSection === "about" ? "active" : ""}`}
-              onClick={() => scrollToSection("about")}
-            >
-              About
-            </button>
-          </li>
-          <li>
-            <button
-              className={`nav-link ${activeSection === "projects" ? "active" : ""}`}
-              onClick={() => scrollToSection("projects")}
-            >
-              Projects
-            </button>
-          </li>
-          <li>
-            <button
-              className={`nav-link ${activeSection === "skills" ? "active" : ""}`}
-              onClick={() => scrollToSection("skills")}
-            >
-              Skills
-            </button>
-          </li>
-          <li>
-            <button
-              className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
-              onClick={() => scrollToSection("contact")}
-            >
-              Contact
-            </button>
-          </li>
+          {NAV_ITEMS.map(({ label, id }) => (
+            <li key={id}>
+              <button
+                className={`nav-link ${activeSection === id ? "active" : ""}`}
+                onClick={() => scrollToSection(id)}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <div className="navbar-cta">
-          <button className="cta-button">
+          <a
+            className="cta-button"
+            href="mailto:rakshitsheoran8@gmail.com"
+            aria-label="Hire Me"
+          >
             <span>Hire Me</span>
-          </button>
+          </a>
         </div>
       </div>
     </nav>
