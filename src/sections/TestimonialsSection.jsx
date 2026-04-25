@@ -55,7 +55,7 @@ const TESTIMONIALS = [
     name: "Akash Yadav",
     title: "Backend Developer",
     company: "Collaborator",
-    text: "Rakshit has a solid understanding of how frontend and backend fit together. Working with him on API integration was seamless — he asked all the right questions about data flows and picked up response structures instantly. Great collaborator.",
+    text:  "Rakshit has a solid understanding of how frontend and backend fit together. Working with him on API integration was seamless — he asked all the right questions about data flows and picked up response structures instantly. Great collaborator.",
   },
 ];
 
