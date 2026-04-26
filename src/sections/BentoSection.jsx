@@ -11,14 +11,13 @@ import {
   FaInstagram,
   FaEnvelope,
   FaPhone,
-  FaPhoneSquare,
   FaArrowRight,
 } from "react-icons/fa";
 import { HiSparkles, HiLightningBolt } from "react-icons/hi";
 import { BsStars } from "react-icons/bs";
 
 import RakshitSheoranPic from "../assets/RakshitSheoranPic.jpeg";
-import ResumeFile from "../assets/Rakshit__Sheoran__Resume.pdf";
+import ResumeFile from "../assets/Resume-Rakshit__Sheoran.pdf";
 import FinArcImg1 from "../assets/FinArc1.png";
 import FinArcImg2 from "../assets/FinArc2.png";
 import FinArcImg3 from "../assets/FinArc3.png";
@@ -288,7 +287,7 @@ const ProjectsCard = () => {
   useEffect(() => {
     const t = setInterval(
       () => setIdx((i) => (i + 1) % PREVIEW_IMGS.length),
-      2200,
+      3500,
     );
     return () => clearInterval(t);
   }, []);
@@ -303,10 +302,10 @@ const ProjectsCard = () => {
               src={PREVIEW_IMGS[idx]}
               alt="project preview"
               className="bento-projects__img"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.55 }}
+              initial={{ opacity: 0, filter: "blur(16px)", scale: 1.04 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              exit={{ opacity: 0, filter: "blur(16px)", scale: 1.04 }}
+              transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
             />
           </AnimatePresence>
           <div className="bento-projects__overlay" />
@@ -386,7 +385,10 @@ const WorkTogetherCard = () => {
 
           <button
             className={`bento-btn bento-btn--outline bento-btn--phone ${showPhone ? "is-revealed" : ""}`}
-            onClick={() => setShowPhone((s) => !s)}
+            onClick={() => {
+              setShowPhone(true);
+              window.location.href = "tel:+918950114027";
+            }}
           >
             <FaPhone className="phone-logo" size={11} />
             <AnimatePresence mode="wait">

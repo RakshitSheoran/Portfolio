@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(40px, 6vh, 64px);
-  padding: clamp(60px, 10vh, 100px) 0;
+  padding: clamp(60px, 8vh, 100px) 0;
   overflow: hidden;
 }
 
@@ -115,13 +115,21 @@
 
 /* ── Animated track ───────────────────────────────────── */
 @keyframes marquee-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-right {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .tm-track {
@@ -147,8 +155,11 @@
   flex-shrink: 0;
   /* backdrop-filter silently fails inside CSS-animated transforms,
      so we use a layered background to replicate the glass tint */
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 24px 26px;
@@ -158,14 +169,19 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   user-select: none;
 }
 
 .tmcard:hover {
   border-color: rgba(132, 0, 255, 0.25);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
   box-shadow:
     0 12px 44px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.11);

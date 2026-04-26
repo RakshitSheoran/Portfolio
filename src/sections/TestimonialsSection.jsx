@@ -6,13 +6,13 @@ const TESTIMONIALS = [
   {
     name: "Aviraj Battan",
     title: "Software Developer",
-    company: "Gigmo Solutions",
+    company: "Ex - Gigmo Solutions Pvt Ltd",
     text: "Rakshit is one of the most focused developers I've worked with. At Gigmo, he built out the XQA Dashboard from scratch, writing clean code, sharp eye for detail, and always going the extra mile to get the UI pixel-perfect.",
   },
   {
     name: "Jai Sehgal",
     title: "Senior Frontend Developer",
-    company: "Gigmo Solutions",
+    company: "Ex - Gigmo Solutions Pvt Ltd",
     text: "Working alongside Rakshit on the KPI dashboard was a great experience. He translated complex Figma designs into responsive, polished UIs faster than anyone I'd seen and the performance improvements he shipped were a real game changer.",
   },
   {
@@ -42,7 +42,7 @@ const TESTIMONIALS = [
   {
     name: "Alok",
     title: "Backend Developer",
-    company: "Gigmo Solutions",
+    company: "Ex - Gigmo Solutions Pvt Ltd",
     text: "Rakshit has a great sense of how things should look and feel. At Gigmo, he consistently delivered components that were not just functional but genuinely polished. A solid team player who raises the bar for everyone around him.",
   },
   {
@@ -55,7 +55,7 @@ const TESTIMONIALS = [
     name: "Akash Yadav",
     title: "Backend Developer",
     company: "Collaborator",
-    text:  "Rakshit has a solid understanding of how frontend and backend fit together. Working with him on API integration was seamless — he asked all the right questions about data flows and picked up response structures instantly. Great collaborator.",
+    text: "Rakshit has a solid understanding of how frontend and backend fit together. Working with him on API integration was seamless — he asked all the right questions about data flows and picked up response structures instantly. Great collaborator.",
   },
 ];
 

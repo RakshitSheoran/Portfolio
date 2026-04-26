@@ -1,5 +1,10 @@
 import { useRef, useState } from "react";
-import { motion, useScroll, useSpring, useMotionValueEvent } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useMotionValueEvent,
+} from "framer-motion";
 import "./ExperienceSection.css";
 
 const EXPERIENCES = [
@@ -11,7 +16,7 @@ const EXPERIENCES = [
     location: "Gurugram",
     bullets: [
       "Identified and resolved frontend UI bugs, improving code quality & application stability for Google India.",
-      "Developed unit tests for React components and services to ensure application reliability & functional accuracy.",
+      "Debugged REST API integrations between frontend and Node.js services, ensuring smooth data flow.",
       "Leveraged GitHub Copilot, Claude Code & ChatGPT to streamline debugging & accelerate issue resolution.",
       "Participated in code reviews & debugging to improve maintainability, increasing stability by 40%.",
     ],
@@ -19,13 +24,13 @@ const EXPERIENCES = [
   {
     year: "2025",
     range: "Jan — Jul 2025",
-    role: "Software Developer Intern — Frontend",
+    role: "Software Developer Intern",
     company: "Gigmo Solutions Pvt. Ltd.",
     location: "Gurugram",
     bullets: [
       "Developed XQA Dashboard for real-time KPI tracking of employees using React.js & JavaScript.",
-      "Built dynamic UI components — charts and performance metrics — using real-time data from REST APIs.",
-      "Converted Figma designs into production-ready UI, ensuring responsive layouts and design consistency.",
+      "Built dynamic UI components — charts and performance metrics - using real-time data from REST APIs.",
+      "Built backend using Node.js, Express, and MongoDB, designing REST APIs and data models to support dashboard functionality.",
       "Improved UI performance by 40% by optimising components with lazy loading, useMemo & useCallback.",
     ],
   },
@@ -53,8 +58,10 @@ const TimelineItem = ({ item, timelineRef, smoothProgress }) => {
     if (!dotRef.current || !timelineRef.current) return;
     const timelineEl = timelineRef.current;
     /* Absolute document positions — scroll-independent */
-    const timelineAbsTop = timelineEl.getBoundingClientRect().top + window.scrollY;
-    const dotAbsTop = dotRef.current.getBoundingClientRect().top + window.scrollY;
+    const timelineAbsTop =
+      timelineEl.getBoundingClientRect().top + window.scrollY;
+    const dotAbsTop =
+      dotRef.current.getBoundingClientRect().top + window.scrollY;
     const fraction = (dotAbsTop - timelineAbsTop) / timelineEl.offsetHeight;
     setIsActive(latest >= fraction - 0.02);
   });
@@ -83,7 +90,10 @@ const TimelineItem = ({ item, timelineRef, smoothProgress }) => {
       </div>
 
       <div className="exp-item__dot-col">
-        <div ref={dotRef} className={`exp-dot ${isActive ? "is-active" : ""}`} />
+        <div
+          ref={dotRef}
+          className={`exp-dot ${isActive ? "is-active" : ""}`}
+        />
       </div>
 
       <motion.div

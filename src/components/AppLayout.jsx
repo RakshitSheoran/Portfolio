@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import LiquidEther from "./LiquidEther";
 import "./AppLayout.css";
 import Navbar from "./NavBar";
@@ -10,6 +11,11 @@ import TestimonialsSection from "../sections/TestimonialsSection";
 import FooterSection from "../sections/FooterSection";
 
 export default function AppLayout() {
+  const isMobile = useMemo(
+    () => window.matchMedia("(hover: none) and (pointer: coarse)").matches,
+    [],
+  );
+
   return (
     <>
       {/* BACKGROUND - Fixed liquid ether */}
@@ -18,18 +24,18 @@ export default function AppLayout() {
           className="liquid-bg"
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
           mouseForce={20}
-          cursorSize={60}
+          cursorSize={50}
           isViscous
           viscous={30}
           iterationsViscous={32}
           iterationsPoisson={32}
           resolution={0.2}
           autoDemo
-          autoSpeed={0.5}
-          autoIntensity={2.2}
+          autoSpeed={isMobile ? 0.25 : 0.5}
+          autoIntensity={isMobile ? 1.1 : 2.2}
           takeoverDuration={0.25}
           autoResumeDelay={3000}
-          autoRampDuration={0.6}
+          autoRampDuration={isMobile ? 1.0 : 0.6}
         />
       </div>
 

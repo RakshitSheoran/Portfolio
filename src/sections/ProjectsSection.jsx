@@ -27,7 +27,7 @@ const projects = [
     category: "PERSONAL FINANCE · 2025",
     title: "FinArc",
     description:
-      "A personal finance dashboard with smart insights — track balances, spending and income, visualise trends, and get AI-assisted recommendations at a glance.",
+      "A personal finance dashboard with smart insights to  track balances, spending and income, visualise trends, and get AI-assisted recommendations at a glance.",
     features: [
       "Real-time balance, savings & expense widgets",
       "Analytics chart for income vs. expenses",
@@ -52,7 +52,7 @@ const projects = [
     category: "WEB APPLICATION · 2026",
     title: "World Atlas",
     description:
-      "An interactive world atlas app — explore countries, regions and key stats with a clean interface and instant search.",
+      "An interactive world atlas app to explore countries, regions and key stats with a clean interface and instant search.",
     features: [
       "Interactive country search & filtering",
       "Population, area & capital city data",

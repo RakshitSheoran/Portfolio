@@ -13,7 +13,7 @@
 
 .bento-section {
   width: 100%;
-  padding: clamp(40px, 8vh, 80px) clamp(16px, 4vw, 60px);
+  padding: clamp(60px, 8vh, 100px) clamp(16px, 4vw, 60px);
   box-sizing: border-box;
 }
 
@@ -669,7 +669,7 @@
 }
 .location-container {
   display: flex;
-  align-items: centre;
+  align-items: center;
   gap: 5px;
 }
 .bento-edu__uni {

@@ -451,8 +451,8 @@
 .userName,
 .userTitle {
   font-family: "Google Sans Flex", sans-serif;
-  padding: 2px;
-  letter-spacing: 0.3px;
+  /* padding: 2px; */
+  letter-spacing: 0.2px;
 }
 .pc-details .userName {
   font-size: clamp(2rem, 5svh, 3.6rem);
