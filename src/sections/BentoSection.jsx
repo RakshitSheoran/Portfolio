@@ -302,9 +302,9 @@ const ProjectsCard = () => {
               src={PREVIEW_IMGS[idx]}
               alt="project preview"
               className="bento-projects__img"
-              initial={{ opacity: 0, filter: "blur(16px)", scale: 1.04 }}
+              initial={{ opacity: 0, filter: "blur(5px)", scale: 1.1 }}
               animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-              exit={{ opacity: 0, filter: "blur(16px)", scale: 1.04 }}
+              exit={{ opacity: 0, filter: "blur(5px)", scale: 1.1 }}
               transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
             />
           </AnimatePresence>
